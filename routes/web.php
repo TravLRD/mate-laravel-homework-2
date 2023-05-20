@@ -20,3 +20,18 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/test', function () {
+    $user = auth()->user();
+
+    if ($user->hasRole('admin')) {
+        return 'You have the admin role.';
+    } elseif ($user->can('edit own content')) {
+        return 'You have permission to edit your own content.';
+    } elseif ($user->can('view content')) {
+        return 'You have permission to view content.';
+    } else {
+        return 'You have no special roles or permissions.';
+    }
+});
