@@ -76,7 +76,7 @@ class BlogPostController extends Controller
      */
     public function edit(BlogPost $blogPost)
     {
-        if (Gate::denies('edit content', $blogPost)) {
+        if (Gate::denies('update', $blogPost)) {
             return redirect(route('blog_posts.index'))->with('error', "You can't edit this post!");
         }
 
@@ -92,9 +92,7 @@ class BlogPostController extends Controller
      */
     public function update(Request $request, BlogPost $blogPost)
     {
-        if (Gate::denies('edit content', $blogPost)) {
-            return redirect(route('blog_posts.index'))->with('error', "You can't update this post!");
-        }
+        $this->authorize('update', $blogPost);
 
         $request->validate([
             'title' => 'required',
@@ -115,9 +113,7 @@ class BlogPostController extends Controller
      */
     public function destroy(BlogPost $blogPost)
     {
-        if (Gate::denies('edit content', $blogPost)) {
-            return redirect(route('blog_posts.index'))->with('error', "You can't delete this post!");
-        }
+        $this->authorize('delete', $blogPost);
 
         $blogPost->delete();
 

@@ -37,7 +37,7 @@
           <td>{{ $post->user->name }}</td>
           <td>
             <a href="{{ route('blog_posts.show', $post->id) }}" class="btn btn-sm btn-success">Show</a>
-            @if(Auth::check() && Auth::user()->can('manage-blog-post', $post))
+            @if(Auth::check() && Auth::user()->can('update', $post) || Auth::user()->can('delete', $post))
             <a href="{{ route('blog_posts.edit', $post->id) }}" class="btn btn-sm btn-warning">Edit</a>
             <form method="POST" action="{{ route('blog_posts.destroy', $post->id) }}" style="display: inline-block;">
               @csrf
