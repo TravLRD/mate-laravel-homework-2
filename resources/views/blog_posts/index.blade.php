@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.blog_posts')
 
 @section('title', 'Blog Posts')
 
@@ -11,9 +11,11 @@
   <div class="card-header">
     <h3 class="card-title">Blog Posts List</h3>
     <div class="card-tools">
+      @if(Auth::check())
       <a href="{{ route('blog_posts.create') }}" class="btn btn-primary">
         <i class="fas fa-plus"></i> New Post
       </a>
+      @endif
     </div>
   </div>
   <!-- /.card-header -->
@@ -35,7 +37,7 @@
           <td>{{ $post->user->name }}</td>
           <td>
             <a href="{{ route('blog_posts.show', $post->id) }}" class="btn btn-sm btn-success">Show</a>
-            @if(Auth::user()->can('edit content', $post))
+            @if(Auth::check() && Auth::user()->can('manage-blog-post', $post))
             <a href="{{ route('blog_posts.edit', $post->id) }}" class="btn btn-sm btn-warning">Edit</a>
             <form method="POST" action="{{ route('blog_posts.destroy', $post->id) }}" style="display: inline-block;">
               @csrf

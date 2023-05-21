@@ -27,8 +27,8 @@ class AuthServiceProvider extends ServiceProvider
 
         //
 
-        Gate::define('edit content', function ($user, $blogPost) {
-            return $user->id === $blogPost->user_id || $user->hasRole('admin');
+        Gate::define('manage-blog-post', function ($user, $blogPost) {
+            return $user->id === $blogPost->user_id;
         });
     }
 }

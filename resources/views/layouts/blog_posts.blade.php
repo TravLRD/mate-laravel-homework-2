@@ -44,7 +44,7 @@
         @include('layouts.Navbar')
 
 
-        <main>
+        <main class="container py-5">
             @yield('content')
         </main>
     </div>

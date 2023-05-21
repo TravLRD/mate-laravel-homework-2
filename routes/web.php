@@ -41,4 +41,4 @@ Route::get('/test', function () {
 });
 
 
-Route::resource('blog_posts', App\Http\Controllers\BlogPostController::class)->middleware('auth');
+Route::resource('blog_posts', App\Http\Controllers\BlogPostController::class);
