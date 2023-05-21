@@ -11,6 +11,9 @@
       <!-- Left Side Of Navbar -->
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
+          <a class="nav-link" href="{{ route('confections.index') }}">Confections</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{{ route('blog_posts.index') }}">Blog Posts</a>
         </li>
         @if (Auth::check() && Auth::user()->can('manage-users'))

@@ -1,93 +1,81 @@
-@extends('layouts.app')
+<!doctype html>
+<html lang="en">
 
-@section('title', 'Dashboard')
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('content_header')
-<h1>Dashboard</h1>
-@stop
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
 
-@section('content')
-<div class="container-fluid py-4">
-    <div class="row">
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-                <div class="inner">
-                    <h3>150</h3>
-                    <p>New Orders</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
+    <title>Confectionery Delights</title>
+</head>
+
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Confectionery Delights</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cakes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Ice-cream</a>
+                </li>
+                <!-- add more navigation items here -->
+            </ul>
         </div>
+    </nav>
 
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-                <div class="inner">
-                    <h3>53<sup style="font-size: 20px">%</sup></h3>
-                    <p>Bounce Rate</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
+    <!-- Hero Section -->
+    <header class="hero bg-primary text-white text-center">
+        <div class="container">
+            <h1 class="display-4">Welcome to Confectionery Delights</h1>
+            <p class="lead">Indulge in the sweet delights and remember the taste of the ice-cream, the smell of the cakes!</p>
+            <img src="image.jpeg" alt="">
         </div>
+    </header>
 
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-                <div class="inner">
-                    <h3>44</h3>
-                    <p>User Registrations</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
+    <!-- Main Section -->
+    <main>
+        <div class="container my-5">
+            <!-- Cakes Section -->
+            <section id="cakes">
+                <h2 class="display-4">Our Cakes</h2>
+                <p>Our cakes are made with love and passion. They are the perfect choice for your special occasions.</p>
+                <!-- Add a carousel or image grid here -->
+            </section>
+
+            <!-- Ice-cream Section -->
+            <section id="ice-cream" class="mt-5">
+                <h2 class="display-4">Our Ice-creams</h2>
+                <p>Our ice-creams are crafted from the finest ingredients. Experience the joy of ice-cream like never before.</p>
+                <!-- Add a carousel or image grid here -->
+            </section>
+
+            <!-- Add more sections as required -->
         </div>
+    </main>
 
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-                <div class="inner">
-                    <h3>65</h3>
-                    <p>Unique Visitors</p>
-                </div>
-                <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
+    <!-- Footer Section -->
+    <footer class="footer bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2023 Confectionery Delights. All Rights Reserved.</p>
         </div>
+    </footer>
 
-        <!-- ./col -->
-    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 
-    <div class="row">
-        <div class="col-md-12">
-            @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
-            @endif
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">{{ __('Dashboard') }}</h3>
-                </div>
-
-                <div class="card-body">
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@stop
+</html>
