@@ -1,4 +1,4 @@
-@extends('layouts.blog_posts')
+@extends('layouts.crud')
 
 @section('title', 'Blog Posts')
 
@@ -22,11 +22,11 @@
   <div class="card-body table-responsive p-0">
     <table class="table table-hover text-nowrap">
       <thead>
-        <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Author</th>
-          <th>Actions</th>
+        <th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -37,7 +37,7 @@
           <td>{{ $post->user->name }}</td>
           <td>
             <a href="{{ route('blog_posts.show', $post->id) }}" class="btn btn-sm btn-success">Show</a>
-            @if(Auth::check() && Auth::user()->can('update', $post) || Auth::user()->can('delete', $post))
+            @if(Auth::check() && (Auth::user()->can('update', $post) || Auth::user()->can('delete', $post)))
             <a href="{{ route('blog_posts.edit', $post->id) }}" class="btn btn-sm btn-warning">Edit</a>
             <form method="POST" action="{{ route('blog_posts.destroy', $post->id) }}" style="display: inline-block;">
               @csrf

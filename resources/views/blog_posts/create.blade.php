@@ -1,4 +1,4 @@
-@extends('layouts.blog_posts')
+@extends('layouts.crud')
 
 @section('title', 'Create Blog Post')
 

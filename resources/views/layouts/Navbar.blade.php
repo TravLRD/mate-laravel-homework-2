@@ -13,6 +13,11 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route('blog_posts.index') }}">Blog Posts</a>
         </li>
+        @if (Auth::check() && Auth::user()->can('manage-users'))
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('users.index') }}">Users</a>
+        </li>
+        @endif
       </ul>
 
       <!-- Right Side Of Navbar -->

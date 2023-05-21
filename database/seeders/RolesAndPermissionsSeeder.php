@@ -28,5 +28,8 @@ class RolesAndPermissionsSeeder extends Seeder
         $adminRole->givePermissionTo($viewContentPermission);
         $adminRole->givePermissionTo($editOwnContentPermission);
         $adminRole->givePermissionTo($editAllContentPermission);
+
+        $manageUsersPermission = Permission::create(['name' => 'manage-users']);
+        $adminRole->givePermissionTo($manageUsersPermission);
     }
 }
