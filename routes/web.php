@@ -23,3 +23,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('blog_posts', App\Http\Controllers\BlogPostController::class);
 Route::resource('users', App\Http\Controllers\UserController::class);
+
+
+Route::get('/confections', [App\Http\Controllers\ConfectionController::class, 'index'])->name('confections.index');
+Route::get('/confections/filter', [App\Http\Controllers\ConfectionController::class, 'filter'])->name('confections.filter');

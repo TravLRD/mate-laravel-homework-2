@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesAndPermissionsSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(BlogPostSeeder::class);
+        $this->call(ConfectionarySeeder::class);
         // Add any other seeders you want to run here
     }
 }
