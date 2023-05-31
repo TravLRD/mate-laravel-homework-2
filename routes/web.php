@@ -19,6 +19,8 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/chart', [App\Http\Controllers\ChartController::class, 'index'])->name('chart');
+
 Route::resource('blog_posts', App\Http\Controllers\BlogPostController::class);
 Route::resource('users', App\Http\Controllers\UserController::class);
 
